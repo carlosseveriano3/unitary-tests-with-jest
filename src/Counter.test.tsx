@@ -1,10 +1,11 @@
-import { render } from "@testing-library/react";
+import '@testing-library/jest-dom'
+import { render, screen } from "@testing-library/react";
 import { Counter } from "./Counter";
 
-describe(Counter, () => {
+describe("Counter", () => {
   it("counter displays correct initial count", () => {
-    const { getByTestId } = render(<Counter initialCount={0} />);
-    const countValue = Number(getByTestId("count").textContent);
+    render(<Counter initialCount={0} />);
+    const countValue = Number(screen.getByTestId("count").textContent);
     expect(countValue).toEqual(0)
   });
 });
